@@ -25,12 +25,12 @@ http = HttpHandler() do req::Request, res::Response
       end
     end
     if length(reqsplit) <= 2
-      return Response("Error: no numbers")
+      return Response(400, "Error: no numbers")
     end
     probstr = reqsplit[3]
     println(probstr)
     if length(probstr) != 81
-      return Response("Error: expected 81 numbers.")
+      return Response(400, "Error: expected 81 numbers.")
     end
     
     # Convert string into numbers, and place in matrix
@@ -42,14 +42,14 @@ http = HttpHandler() do req::Request, res::Response
         for col = 1:9
           val = int(probstr[pos:pos])
           if val < 0 || val > 10
-            return Response("Error: number out of range 0:9.")
+            return Response(422, "Error: number out of range 0:9.")
           end
           prob[row,col] = val
           pos += 1
         end
       end
     catch
-      return Response("Error: couldn't parse numbers.")
+      return Response(422, "Error: couldn't parse numbers.")
     end
 
     # Attempt to solve the problem using integer programming
@@ -72,7 +72,7 @@ http = HttpHandler() do req::Request, res::Response
         return Response(join(sol,""))
       end
     catch
-      return Response("Error: coudn't solve puzzle.")
+      return Response(422, "Error: coudn't solve puzzle.")
     end
   else
     return Response(404)

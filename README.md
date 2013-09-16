@@ -22,8 +22,9 @@ To run it for yourself:
  * ``julia -e 'Pkg.add("HttpServer")'``
  * ``julia -e 'Pkg.add("JuMP")'``
 * Launch the server: ``julia server.jl``
-* Navigate to the server in your browser, e.g. 
- * [http://localhost:8000/sudoku/31005800400.../pretty](http://localhost:8000/sudoku/310058004009320000025104090000000389008000500546000000080203650000071400700480021/pretty)
-  * Will return a human readable HTML table
- * [http://localhost:8000/sudoku/31005800400...](http://localhost:8000/sudoku/310058004009320000025104090000000389008000500546000000080203650000071400700480021)
-  * Will return a string of 81 numbers representing the solution
+* Navigate to the server in your browser:
+ * Requests should be of the form ``/sudoku/123...123`` or ``/sudoku/123...123/pretty`` for human-readable response
+ * There should be 81 numbers, one for each cell of the 9x9 sudoku board. A zero indicates a blank.
+ * Examples:
+  * [http://localhost:8000/sudoku/31005800400.../pretty](http://localhost:8000/sudoku/310058004009320000025104090000000389008000500546000000080203650000071400700480021/pretty) will return a human readable HTML table
+  * [http://localhost:8000/sudoku/31005800400...](http://localhost:8000/sudoku/310058004009320000025104090000000389008000500546000000080203650000071400700480021) will return a string of 81 numbers representing the solution

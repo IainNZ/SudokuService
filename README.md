@@ -16,6 +16,7 @@ This project is mainly for demonstration purposes. While you could probably solv
 * You can solve complex optimization problems using external solvers behind a web interface.
 
 To run it for yourself:
+* As far as I know, Windows isn't supported yet by HttpParser, so you need to be on OSX or Linux.
 * Clone the repository
 * Install Julia 0.2 (see site for instructions)
 * Add the required packages:

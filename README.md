@@ -22,6 +22,7 @@ To run it for yourself:
 * Add the required packages:
  * ``julia -e 'Pkg.add("HttpServer")'``
  * ``julia -e 'Pkg.add("JuMP")'``
+ * ``julia -e 'Pkg.add("Cbc")'``
 * Launch the server: ``julia server.jl``
 * Navigate to the server in your browser:
  * Requests should be of the form ``/sudoku/123...123`` or ``/sudoku/123...123/pretty`` for human-readable response
